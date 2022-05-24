@@ -2,26 +2,24 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [ammountValue, setAmmountValue] = useState("");
+  const [amountValue, setAmountValue] = useState("");
 
-  const handleChangeAmmount = (event) => {
-    const result = event.target.value.replace(/\D/g, "");
-
-    setAmmountValue(result);
+  const handleChangeAmount = (event) => {
+    setAmountValue(Number(event.target.value));
   };
 
-  console.log(Number(ammountValue));
+  console.log(amountValue);
 
   return (
     <div className="App">
       <main className="content">
-        <div className="ammount">
-          <p>Ammount</p>
+        <div className="amount">
+          <p>Amount</p>
           <input
-            type="text"
+            type="number"
             placeholder=""
-            value={ammountValue}
-            onChange={handleChangeAmmount}
+            value={amountValue}
+            onChange={handleChangeAmount}
           />
         </div>
       </main>
