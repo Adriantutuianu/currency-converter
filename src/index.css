@@ -5,3 +5,10 @@
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
 }
+
+:root {
+  --primary-color: #222831;
+  --secondary-color: #393e46;
+  --third-color: #00adb5;
+  --fourth-color: #eeeeee;
+}
