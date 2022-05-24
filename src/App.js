@@ -2,15 +2,15 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [value, setValue] = useState("");
+  const [ammountValue, setAmmountValue] = useState("");
 
-  const handleChange = (event) => {
+  const handleChangeAmmount = (event) => {
     const result = event.target.value.replace(/\D/g, "");
 
-    setValue(result);
+    setAmmountValue(result);
   };
 
-  console.log(Number(value));
+  console.log(Number(ammountValue));
 
   return (
     <div className="App">
@@ -20,8 +20,8 @@ function App() {
           <input
             type="text"
             placeholder=""
-            value={value}
-            onChange={handleChange}
+            value={ammountValue}
+            onChange={handleChangeAmmount}
           />
         </div>
       </main>
