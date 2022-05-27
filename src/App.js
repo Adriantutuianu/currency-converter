@@ -22,6 +22,22 @@ function App() {
             onChange={handleChangeAmount}
           />
         </div>
+        <div className="from-currency">
+          <p>From</p>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+        <div className="to-currency">
+          <p>To</p>
+          <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
       </main>
     </div>
   );
