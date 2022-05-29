@@ -5,6 +5,7 @@ function App() {
   const [amountValue, setAmountValue] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [firstSelect, setFirstSelect] = useState("");
 
   const getCurrencies = async () => {
     setLoading(true);
@@ -38,12 +39,12 @@ function App() {
 
   const currencyOptions = Object.entries(currencies).map(([key, value]) => {
     return (
-      <option value={value} key={key}>
-        {key}
+      <option value={key} key={key}>
+        {value}
       </option>
     );
   });
-
+  console.log("first input: ", firstSelect);
   return (
     <div className="App">
       <main className="content">
@@ -62,7 +63,9 @@ function App() {
             </div>
             <div className="from-currency">
               <p>From</p>
-              <select>{currencyOptions}</select>
+              <select onChange={(e) => setFirstSelect(e.target.value)}>
+                {currencyOptions}
+              </select>
             </div>
             <div className="to-currency">
               <p>To</p>
