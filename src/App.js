@@ -29,14 +29,20 @@ function App() {
     }
     setLoading(false);
   };
-
   const handleChangeAmount = (event) => {
     setAmountValue(Number(event.target.value));
   };
-
   useEffect(() => {
     getCurrencies();
   }, []);
+
+  const currencyOptions = Object.entries(currencies).map(([key, value]) => {
+    return (
+      <option value={value} key={key}>
+        {key}
+      </option>
+    );
+  });
 
   return (
     <div className="App">
@@ -56,19 +62,11 @@ function App() {
             </div>
             <div className="from-currency">
               <p>From</p>
-              <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+              <select>{currencyOptions}</select>
             </div>
             <div className="to-currency">
               <p>To</p>
-              <select>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+              <select>{currencyOptions}</select>
             </div>
           </>
         )}
