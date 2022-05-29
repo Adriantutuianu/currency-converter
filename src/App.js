@@ -5,7 +5,9 @@ function App() {
   const [amountValue, setAmountValue] = useState("");
   const [currencies, setCurrencies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [firstSelect, setFirstSelect] = useState("");
+  const [firstSelect, setFirstSelect] = useState(
+    currencies && Object.keys(currencies)[0]
+  );
   const [secondSelect, setSecondSelect] = useState("");
 
   const getCurrencies = async () => {
@@ -65,7 +67,10 @@ function App() {
             </div>
             <div className="from-currency">
               <p>From</p>
-              <select onChange={(e) => setFirstSelect(e.target.value)}>
+              <select
+                onChange={(e) => setFirstSelect(e.target.value)}
+                defaultValue={firstSelect}
+              >
                 {currencyOptions}
               </select>
             </div>
