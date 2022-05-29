@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import DocumentMeta from "react-document-meta";
 
 function App() {
   const [amountValue, setAmountValue] = useState("");
@@ -38,10 +39,23 @@ function App() {
     getCurrencies();
   }, []);
 
+  const meta = {
+    title: "Curency converter",
+    // description: "I am a description, and I can create multiple tags",
+    // canonical: "http://example.com/path/to/page",
+    // meta: {
+    //   charset: "utf-8",
+    //   name: {
+    //     keywords: "react,meta,document,html,tags",
+    //   },
+    // },
+  };
+
   return (
     <div className="App">
+      <DocumentMeta {...meta} />
       <main className="content">
-        {loading === true ? (
+        {loading ? (
           <p>Loading...</p>
         ) : (
           <>
