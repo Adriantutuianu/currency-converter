@@ -223,7 +223,22 @@ function App() {
   console.log("second input: ", secondSelect);
 
   const handleClickConvert = () => {
-    console.log(amountValue);
+    const myHeaders = new Headers();
+    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+      headers: myHeaders,
+    };
+
+    fetch(
+      `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   };
 
   return (
@@ -256,7 +271,9 @@ function App() {
               <select onChange={(e) => setSecondSelect(e.target.value)}>
                 {currencyOptions}
               </select>
-              <button onClick={handleClickConvert}>Convert</button>
+              <button className="convert" onClick={handleClickConvert}>
+                Convert
+              </button>
             </div>
           </>
         )}
