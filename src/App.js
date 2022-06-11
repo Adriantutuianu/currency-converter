@@ -289,6 +289,9 @@ function App() {
           </>
         )}
       </main>
+      <footer>
+        @{new Date().getFullYear()} - All rights reserved @Adrian Tut.
+      </footer>
     </div>
   );
 }
