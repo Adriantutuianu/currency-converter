@@ -179,7 +179,10 @@ function App() {
   const [firstSelect, setFirstSelect] = useState(
     currencies && Object.keys(currencies)[0]
   );
-  const [secondSelect, setSecondSelect] = useState("");
+  const [secondSelect, setSecondSelect] = useState(
+    currencies && Object.keys(currencies)[0]
+  );
+  const [convertResult, setConvertResult] = useState(0);
 
   const getCurrencies = async () => {
     setLoading(true);
@@ -236,8 +239,8 @@ function App() {
       `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
       requestOptions
     )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((res) => res.json())
+      .then((res) => setConvertResult(res.result))
       .catch((error) => console.log("error", error));
   };
 
@@ -274,6 +277,7 @@ function App() {
               <button className="convert" onClick={handleClickConvert}>
                 Convert
               </button>
+              <p className="convert-result">{convertResult}</p>
             </div>
           </>
         )}
