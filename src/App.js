@@ -221,6 +221,11 @@ function App() {
   });
   console.log("first input: ", firstSelect);
   console.log("second input: ", secondSelect);
+
+  const handleClickConvert = () => {
+    console.log(amountValue);
+  };
+
   return (
     <div className="App">
       <main className="content">
@@ -251,6 +256,7 @@ function App() {
               <select onChange={(e) => setSecondSelect(e.target.value)}>
                 {currencyOptions}
               </select>
+              <button onClick={handleClickConvert}>Convert</button>
             </div>
           </>
         )}
