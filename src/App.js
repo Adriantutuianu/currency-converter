@@ -207,6 +207,7 @@ function App() {
     }
     setLoading(false);
   };
+
   const handleChangeAmount = (event) => {
     setAmountValue(Number(event.target.value));
   };
@@ -225,7 +226,8 @@ function App() {
   console.log("first input: ", firstSelect);
   console.log("second input: ", secondSelect);
 
-  const handleClickConvert = () => {
+  const handleClickConvert = async () => {
+    setLoading(true);
     const myHeaders = new Headers();
     myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
 
@@ -235,13 +237,18 @@ function App() {
       headers: myHeaders,
     };
 
-    fetch(
-      `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
-      requestOptions
-    )
-      .then((res) => res.json())
-      .then((res) => setConvertResult(res.result))
-      .catch((error) => console.log("error", error));
+    try {
+      await fetch(
+        `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
+        requestOptions
+      )
+        .then((res) => res.json())
+        .then((res) => setConvertResult(res.result))
+        .catch((error) => console.log("error", error));
+    } catch (error) {
+      console.log("Failed to convert: " + error);
+    }
+    setLoading(false);
   };
 
   return (
