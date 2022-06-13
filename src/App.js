@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Loader from "./components/Loader";
+import Footer from "./components/Footer";
 
 const localList = {
   AED: "United Arab Emirates Dirham",
@@ -294,9 +295,7 @@ function App() {
           </>
         )}
       </main>
-      <footer>
-        @{new Date().getFullYear()} - All rights reserved @Adrian Tut.
-      </footer>
+      <Footer />
     </div>
   );
 }
