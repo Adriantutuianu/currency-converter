@@ -300,7 +300,9 @@ function App() {
               >
                 Convert
               </button>
-              <p className="convert-result">{convertResult}</p>
+              {convertResult > 0 && (
+                <p className="convert-result">{convertResult}</p>
+              )}
             </div>
           </>
         )}
