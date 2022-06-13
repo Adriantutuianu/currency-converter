@@ -175,7 +175,7 @@ const localList = {
 };
 
 function App() {
-  const [amountValue, setAmountValue] = useState("");
+  const [amountValue, setAmountValue] = useState(1);
   const [currencies, setCurrencies] = useState(localList);
   const [loading, setLoading] = useState(false);
   const [firstSelect, setFirstSelect] = useState(
@@ -274,7 +274,6 @@ function App() {
               <p>Amount</p>
               <input
                 type="number"
-                placeholder="0"
                 value={amountValue}
                 onChange={handleChangeAmount}
               />
