@@ -256,9 +256,10 @@ function App() {
       <header>
         <h1>Currency converter</h1>
       </header>
+
       <main className="content">
         {loading ? (
-          <p>Loading...</p>
+          <span className="loader"></span>
         ) : (
           <>
             <div className="amount">
