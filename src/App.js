@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+import Loader from "./components/Loader";
 
 const localList = {
   AED: "United Arab Emirates Dirham",
@@ -259,7 +260,7 @@ function App() {
 
       <main className="content">
         {loading ? (
-          <span className="loader"></span>
+          <Loader />
         ) : (
           <>
             <div className="amount">
