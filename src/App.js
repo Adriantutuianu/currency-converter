@@ -185,6 +185,7 @@ function App() {
     currencies && Object.keys(currencies)[0]
   );
   const [convertResult, setConvertResult] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const getCurrencies = async () => {
     setLoading(true);
@@ -229,28 +230,33 @@ function App() {
   console.log("second input: ", secondSelect);
 
   const handleClickConvert = async () => {
-    setLoading(true);
-    const myHeaders = new Headers();
-    myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+    if (amountValue <= 0) {
+      setErrorMessage("Amount value must be greater than 0.");
+    } else {
+      setErrorMessage("");
+      setLoading(true);
+      const myHeaders = new Headers();
+      myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
 
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-      headers: myHeaders,
-    };
+      const requestOptions = {
+        method: "GET",
+        redirect: "follow",
+        headers: myHeaders,
+      };
 
-    try {
-      await fetch(
-        `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
-        requestOptions
-      )
-        .then((res) => res.json())
-        .then((res) => setConvertResult(res.result))
-        .catch((error) => console.log("error", error));
-    } catch (error) {
-      console.log("Failed to convert: " + error);
+      try {
+        await fetch(
+          `https://api.apilayer.com/currency_data/convert?to=${secondSelect}&from=${firstSelect}&amount=${amountValue}`,
+          requestOptions
+        )
+          .then((res) => res.json())
+          .then((res) => setConvertResult(res.result))
+          .catch((error) => console.log("error", error));
+      } catch (error) {
+        console.log("Failed to convert: " + error);
+      }
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -286,8 +292,13 @@ function App() {
               <p>To</p>
               <select onChange={(e) => setSecondSelect(e.target.value)}>
                 {currencyOptions}
-              </select>
-              <button className="convert" onClick={handleClickConvert}>
+              </select>{" "}
+              {errorMessage}
+              <button
+                type="submit"
+                className="convert"
+                onClick={handleClickConvert}
+              >
                 Convert
               </button>
               <p className="convert-result">{convertResult}</p>
