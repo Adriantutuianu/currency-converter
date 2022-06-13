@@ -253,6 +253,9 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <h1>Currency converter</h1>
+      </header>
       <main className="content">
         {loading ? (
           <p>Loading...</p>
