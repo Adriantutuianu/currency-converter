@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import Loader from "./components/Loader";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const localList = {
   AED: "United Arab Emirates Dirham",
@@ -261,10 +262,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Currency converter</h1>
-      </header>
-
+      <Header />
       <main className="content">
         {loading ? (
           <Loader />
