@@ -2,7 +2,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  font-weight: 500;
-  border-top: 3px solid var(--third-color);
+  height: 50px;
+  font-weight: 550;
+  color: var(--secondary-color);
+  background-color: var(--fifth-color);
+  border-top: 3px solid var(--primary-color);
 }
