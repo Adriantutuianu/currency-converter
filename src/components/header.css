@@ -5,5 +5,5 @@ header {
   align-items: center;
   color: var(--secondary-color);
   background-color: var(--fifth-color);
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
 }

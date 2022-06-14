@@ -6,5 +6,5 @@ footer {
   font-weight: 550;
   color: var(--secondary-color);
   background-color: var(--fifth-color);
-  border-top: 3px solid var(--primary-color);
+  border-top: 2px solid var(--primary-color);
 }
