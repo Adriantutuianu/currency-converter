@@ -4,5 +4,5 @@ footer {
   align-items: center;
   height: 40px;
   font-weight: 500;
-  border-top: 3px solid black;
+  border-top: 3px solid var(--third-color);
 }
