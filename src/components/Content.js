@@ -266,15 +266,16 @@ const Content = () => {
       ) : (
         <>
           <div className="amount">
-            <p>Amount</p>
+            <p>Amount:</p>
             <input
+              className="amount-input"
               type="number"
               value={amountValue}
               onChange={handleChangeAmount}
             />
           </div>
-          <div className="from-currency">
-            <p>From</p>
+          <div className="from-currency amount">
+            <p>From:</p>
             <select
               onChange={(e) => setFirstSelect(e.target.value)}
               defaultValue={firstSelect}
@@ -282,8 +283,8 @@ const Content = () => {
               {currencyOptions}
             </select>
           </div>
-          <div className="to-currency">
-            <p>To</p>
+          <div className="to-currency amount">
+            <p>To:</p>
             <select onChange={(e) => setSecondSelect(e.target.value)}>
               {currencyOptions}
             </select>{" "}
