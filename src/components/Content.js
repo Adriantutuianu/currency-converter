@@ -289,17 +289,17 @@ const Content = () => {
               {currencyOptions}
             </select>{" "}
             {errorMessage}
-            <button
-              type="submit"
-              className="convert"
-              onClick={handleClickConvert}
-            >
-              Convert
-            </button>
-            {convertResult > 0 && (
-              <p className="convert-result">{convertResult}</p>
-            )}
-          </div>
+          </div>{" "}
+          <button
+            type="submit"
+            className="convert"
+            onClick={handleClickConvert}
+          >
+            Convert
+          </button>
+          {convertResult > 0 && (
+            <p className="convert-result">{convertResult}</p>
+          )}
         </>
       )}
     </main>
