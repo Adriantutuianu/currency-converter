@@ -1,5 +1,6 @@
 header {
   min-height: 10vh;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;

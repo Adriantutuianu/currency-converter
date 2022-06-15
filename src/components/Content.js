@@ -261,47 +261,49 @@ const Content = () => {
 
   return (
     <main className="content">
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="amount">
-            <p>Amount:</p>
-            <input
-              className="amount-input"
-              type="number"
-              value={amountValue}
-              onChange={handleChangeAmount}
-            />
-          </div>
-          <div className="from-currency amount">
-            <p>From:</p>
-            <select
-              onChange={(e) => setFirstSelect(e.target.value)}
-              defaultValue={firstSelect}
+      <div className="form-container">
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className="amount">
+              <p>Amount:</p>
+              <input
+                className="amount-input"
+                type="number"
+                value={amountValue}
+                onChange={handleChangeAmount}
+              />
+            </div>
+            <div className="from-currency amount">
+              <p>From:</p>
+              <select
+                onChange={(e) => setFirstSelect(e.target.value)}
+                defaultValue={firstSelect}
+              >
+                {currencyOptions}
+              </select>
+            </div>
+            <div className="to-currency amount">
+              <p>To:</p>
+              <select onChange={(e) => setSecondSelect(e.target.value)}>
+                {currencyOptions}
+              </select>{" "}
+              {errorMessage}
+            </div>{" "}
+            <button
+              type="submit"
+              className="convert"
+              onClick={handleClickConvert}
             >
-              {currencyOptions}
-            </select>
-          </div>
-          <div className="to-currency amount">
-            <p>To:</p>
-            <select onChange={(e) => setSecondSelect(e.target.value)}>
-              {currencyOptions}
-            </select>{" "}
-            {errorMessage}
-          </div>{" "}
-          <button
-            type="submit"
-            className="convert"
-            onClick={handleClickConvert}
-          >
-            Convert
-          </button>
-          {convertResult > 0 && (
-            <p className="convert-result">{convertResult}</p>
-          )}
-        </>
-      )}
+              Convert
+            </button>
+            {convertResult > 0 && (
+              <p className="convert-result">{convertResult}</p>
+            )}
+          </>
+        )}
+      </div>
     </main>
   );
 };

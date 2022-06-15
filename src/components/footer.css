@@ -2,7 +2,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 67px;
   font-weight: 550;
   color: var(--secondary-color);
   background-color: var(--fifth-color);
