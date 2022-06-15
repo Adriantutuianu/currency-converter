@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: var(--sixth-color);
 }
 
 .form-container {
@@ -15,16 +16,17 @@
 .amount {
   display: flex;
   justify-content: space-between;
-  font-size: 22px;
+  font-size: 24px;
   padding: 8px;
 }
 
 .amount p {
-  margin: 7px;
+  margin-right: 12px;
 }
 .amount-input {
   width: 70px;
   border-radius: 4px;
+  height: 35px;
 }
 
 .convert {
@@ -33,4 +35,17 @@
   font-size: 16px;
   border: 1px solid black;
   border-radius: 4px;
+}
+
+.select-currency {
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.convert-button {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px;
+  margin-top: 20px;
 }

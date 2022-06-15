@@ -278,6 +278,7 @@ const Content = () => {
             <div className="from-currency amount">
               <p>From:</p>
               <select
+                className="select-currency"
                 onChange={(e) => setFirstSelect(e.target.value)}
                 defaultValue={firstSelect}
               >
@@ -286,18 +287,24 @@ const Content = () => {
             </div>
             <div className="to-currency amount">
               <p>To:</p>
-              <select onChange={(e) => setSecondSelect(e.target.value)}>
+              <select
+                className="select-currency"
+                onChange={(e) => setSecondSelect(e.target.value)}
+              >
                 {currencyOptions}
               </select>{" "}
               {errorMessage}
             </div>{" "}
-            <button
-              type="submit"
-              className="convert"
-              onClick={handleClickConvert}
-            >
-              Convert
-            </button>
+            <div className="convert-button">
+              {" "}
+              <button
+                type="submit"
+                className="convert"
+                onClick={handleClickConvert}
+              >
+                Convert
+              </button>
+            </div>
             {convertResult > 0 && (
               <p className="convert-result">{convertResult}</p>
             )}
