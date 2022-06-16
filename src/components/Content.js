@@ -266,7 +266,7 @@ const Content = () => {
           <Loader />
         ) : (
           <>
-            <div className="amount">
+            <div className="amount row">
               <p>Amount:</p>
               <input
                 className="amount-input"
@@ -275,7 +275,7 @@ const Content = () => {
                 onChange={handleChangeAmount}
               />
             </div>
-            <div className="from-currency amount">
+            <div className="from-currency row">
               <p>From:</p>
               <select
                 className="select-currency"
@@ -285,16 +285,16 @@ const Content = () => {
                 {currencyOptions}
               </select>
             </div>
-            <div className="to-currency amount">
+            <div className="to-currency row">
               <p>To:</p>
               <select
-                className="select-currency"
+                className="select-currency select-currency-to"
                 onChange={(e) => setSecondSelect(e.target.value)}
               >
                 {currencyOptions}
               </select>{" "}
-              {errorMessage}
             </div>{" "}
+            <p className="error-message">{errorMessage}</p>
             <div className="convert-button">
               {" "}
               <button
