@@ -21,12 +21,12 @@
 }
 
 .row p {
-  margin-right: 12px;
+  margin-right: 50px;
 }
 .amount-input {
   width: 70px;
   border-radius: 4px;
-  height: 35px;
+  padding-left: 5px;
 }
 
 input::placeholder {
@@ -39,15 +39,16 @@ input::placeholder {
   border: 1px solid black;
 }
 
-.convert {
+.convert-button {
   height: 35px;
   width: 70px;
   font-size: 16px;
   border: 1px solid black;
   border-radius: 4px;
+  cursor: pointer;
 }
 
-.convert-button {
+.convert-container {
   display: flex;
   justify-content: flex-end;
   padding: 8px;

@@ -295,11 +295,11 @@ const Content = () => {
               </select>{" "}
             </div>{" "}
             <p className="error-message">{errorMessage}</p>
-            <div className="convert-button">
+            <div className="convert-container">
               {" "}
               <button
                 type="submit"
-                className="convert"
+                className="convert-button"
                 onClick={handleClickConvert}
               >
                 Convert
