@@ -62,10 +62,10 @@ input::placeholder {
 
 .convert {
   border: 2px solid black;
+  transition: 0.2s ease-in;
 }
 
 .convert:hover {
   background-color: var(--third-color);
   color: white;
-  transition: 0.4 ease-in;
 }
