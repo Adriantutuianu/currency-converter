@@ -1,6 +1,6 @@
 import React from "react";
 import "./content.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Loader from "./Loader";
 
 const localList = {
@@ -176,7 +176,7 @@ const localList = {
 
 const Content = () => {
   const [amountValue, setAmountValue] = useState(1);
-  const [currencies, setCurrencies] = useState(localList);
+  const [currencies, setCurrencies] = useState({});
   const [loading, setLoading] = useState(false);
   const [firstSelect, setFirstSelect] = useState(
     currencies && Object.keys(currencies)[0]
@@ -215,9 +215,9 @@ const Content = () => {
     setAmountValue(Number(event.target.value));
   };
 
-  // useEffect(() => {
-  //   getCurrencies();
-  // }, []);
+  useEffect(() => {
+    getCurrencies();
+  }, []);
 
   const currencyOptions = Object.entries(currencies).map(([key, value]) => {
     return (
