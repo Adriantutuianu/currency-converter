@@ -137,10 +137,10 @@ const Content = () => {
               >
                 Convert
               </button>
+              {convertResult > 0 && (
+                <p className="convert-result">{convertResult}</p>
+              )}
             </div>
-            {convertResult > 0 && (
-              <p className="convert-result">{convertResult}</p>
-            )}
           </>
         )}
       </div>
