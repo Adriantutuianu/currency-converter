@@ -138,7 +138,7 @@ const Content = () => {
                 Convert
               </button>
               {convertResult > 0 && (
-                <p className="convert-result">{convertResult}</p>
+                <p className="convert-result">{convertResult.toFixed(3)}</p>
               )}
             </div>
           </>
